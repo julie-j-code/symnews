@@ -102,6 +102,9 @@
     "fzaninotto/faker": {
         "version": "v1.9.2"
     },
+    "knplabs/knp-time-bundle": {
+        "version": "v1.16.0"
+    },
     "laminas/laminas-code": {
         "version": "4.0.0"
     },
@@ -524,6 +527,9 @@
         "version": "v5.2.3"
     },
     "twig/extra-bundle": {
+        "version": "v3.3.0"
+    },
+    "twig/string-extra": {
         "version": "v3.3.0"
     },
     "twig/twig": {

@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserController!{% endblock %}
+
+{% block body %}
+<main role="main">
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1 class="display-3">Liste des auteurs actualisée !</h1>
+        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content.</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Example row of columns -->
+
+      <table class="table table-hovered">
+          <thead>
+              <tr>
+                  <th>Nom : </th>
+                  <th>Prénom : </th>
+                  <th>Email : </th>
+                  <th>Nombre d'articles : </th>
+                </tr>
+            </thead>
+            <tbody>
+              {% for user in users %}   
+              <tr>
+                  <td>{{user.firstname}}</td>
+                  <td>{{user.lastname}}</td>
+                  <td>{{user.email}}</td>
+                  <td>{{user.news | length}}</td>
+              </tr>
+              {% endfor %}
+          </tbody>
+      </table>       
+
+      <hr>
+
+    </div> <!-- /container -->
+
+  </main>
+{% endblock %}

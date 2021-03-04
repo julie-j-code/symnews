@@ -19,6 +19,19 @@ class NewsRepository extends ServiceEntityRepository
         parent::__construct($registry, News::class);
     }
 
+    //creation fonction perso sur modèles
+    public function findLastNews($nb=5)
+    {
+        return $this->createQueryBuilder('n')
+            ->andWhere('n.status = :status')
+            ->setParameter('status', 'Published')
+            ->orderBy('n.createdAt', 'DESC')
+            ->setMaxResults($nb)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     // /**
     //  * @return News[] Returns an array of News objects
     //  */

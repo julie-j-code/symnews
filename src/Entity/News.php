@@ -48,6 +48,7 @@ class News
      */
     private $status;
 
+
     public function getId(): ?int
     {
         return $this->id;
@@ -91,7 +92,7 @@ class News
 
     public function getUpdatedAt(): ?\DateTimeInterface
     {
-        return $this->updateAt;
+        return $this->updatedAt;
     }
 
     public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
@@ -124,4 +125,10 @@ class News
 
         return $this;
     }
+
+
+
+
+
+
 }
