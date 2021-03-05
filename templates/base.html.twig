@@ -67,6 +67,10 @@
 			</ul>
 			<ul class="navbar-nav ml-auto">
 				{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+				<li class="nav-item active">
+					<a class="nav-link" href="{{path('profile_edit')}}">Admin
+					</a>
+				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="{{path('app_logout')}}">Déconnexion</a>
 				</li>
@@ -77,9 +81,7 @@
 				</li>
 				{% endif %}
 				{% if is_granted('ROLE_ADMIN') %}
-
 				{# Ici le contenu réservé aux administrateurs#}
-
 				<li class="nav-item active">
 					<a class="nav-link" href="{{path('users_edit')}}">Admin
 					</a>

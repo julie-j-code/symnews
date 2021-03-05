@@ -8,18 +8,16 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1 class="display-3">Liste des auteurs actualisée !</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content.</p>
+        <h1 class="display-3">Profile de {{user.firstname}} {{user.lastname}}</h1>
+        <p>Ceci est la vue qui rend compte du profile utilisateur...
+          <br>Vue à partir de laquelle l'utilisateur authentifié et/ou l'administrateur peut pour le moment modifier les informations.</p>
       </div>
     </div>
 
     <div class="container">
       <!-- Example row of columns -->
-
-     {{form(form)}}  
-
+      {{form(form)}}
       <hr>
-
     </div> <!-- /container -->
 
   </main>
