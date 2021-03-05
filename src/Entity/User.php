@@ -37,6 +37,12 @@ class User implements UserInterface
     private $password;
 
     /**
+     * @var string ajouté  pour afficher password en clair à l'édition du formulaire
+     */
+    
+    private $plainpassword;
+
+    /**
      * @ORM\Column(type="string", length=255)
      */
     private $firstname;
@@ -103,6 +109,18 @@ class User implements UserInterface
     public function setPassword(string $password): self
     {
         $this->password = $password;
+
+        return $this;
+    }
+
+    public function getPlainpassword(): ?string
+    {
+        return $this->plainPassword;
+    }
+
+    public function setPlainpassword(?string $password): self
+    {
+        $this->plainPassword = $password;
 
         return $this;
     }
