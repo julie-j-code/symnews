@@ -40,7 +40,7 @@ class User implements UserInterface
      * @var string ajouté  pour afficher password en clair à l'édition du formulaire
      */
     
-    private $plainpassword;
+    private $plainPassword;
 
     /**
      * @ORM\Column(type="string", length=255)

@@ -47,7 +47,7 @@
 					<a class="nav-link" href="{{path('news')}}">News</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link {{is_granted('IS_AUTHENTIFICATED_FULLY')==false ? 'disabled'}}" href="#">Auteurs</a>
+					<a class="nav-link {{is_granted('IS_AUTHENTICATED_FULLY')==false ? 'disabled'}}" href="{{path('users')}}">Auteurs</a>
 				</li>
 				<!-- <li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown"
