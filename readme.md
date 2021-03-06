@@ -54,7 +54,7 @@ Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle::class => ['all' => true]
 ```
 
 
-J'ai ajouté les lignes suivantes pour permettre l'execution de d:m:m sur Heroku :
+J'ai ajouté les lignes suivantes pour permettre l'execution des scripts de migrations sur Heroku :
 
 ```
     public function isTransactional(): bool
