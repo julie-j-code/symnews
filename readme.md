@@ -66,4 +66,5 @@ J'ai ajouté les lignes suivantes pour permettre l'execution de d:m:m sur Heroku
 
 ## Acknowledgments
 
-* **Billie Thompson** - *Initial work*
+https://labinc.fr - *Initial work*
+https://www.youtube.com/watch?v=DBHs5iqxIPQ
