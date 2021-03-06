@@ -21,6 +21,11 @@ final class Version20210303153622 extends AbstractMigration
         $this->addSql('ALTER TABLE news ADD CONSTRAINT FK_1DD39950A76ED395 FOREIGN KEY (user_id) REFERENCES user (id)');
     }
 
+    public function isTransactional(): bool
+    {
+        return false;
+    }
+
     public function down(Schema $schema) : void
     {
         // this down() migration is auto-generated, please modify it to your needs

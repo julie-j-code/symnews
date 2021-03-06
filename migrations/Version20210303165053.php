@@ -7,6 +7,8 @@ namespace DoctrineMigrations;
 use Doctrine\DBAL\Schema\Schema;
 use Doctrine\Migrations\AbstractMigration;
 
+
+
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
@@ -17,6 +19,11 @@ final class Version20210303165053 extends AbstractMigration
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->addSql('ALTER TABLE news ADD updated_at DATETIME DEFAULT NULL, DROP update_at');
+    }
+
+    public function isTransactional(): bool
+    {
+        return false;
     }
 
     public function down(Schema $schema) : void

@@ -20,6 +20,11 @@ final class Version20210303153155 extends AbstractMigration
         $this->addSql('ALTER TABLE user ADD firstname VARCHAR(255) NOT NULL, ADD lastname VARCHAR(255) NOT NULL');
     }
 
+    public function isTransactional(): bool
+    {
+        return false;
+    }
+
     public function down(Schema $schema) : void
     {
         // this down() migration is auto-generated, please modify it to your needs
