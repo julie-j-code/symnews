@@ -4,12 +4,28 @@
 {% endblock %}
 
 {% block body %}
+<div class="container-fluid bg-light p-5 my-5">
+    <div class="container mx-auto pt-5">
+      <h1 class="display-3 mb-5">Messagerie</h1>
+      <p>Classical formType associated with the message entity. Return above this jumbotron with classical $form->createView().<br>as mentioned in the introduction, the interest of linking the user tables and message here is the use of Symfony form EntityType::class in the MessageType.   
+          <code>
+            ->add('recipient', EntityType::class, [
+                "class" => User::class,
+                "choice_label" => "email"])
+          </code>. 
+           <p>
+            Then, above this jumbotron, you can see in action <code> app.user.received|length</code>
+           </p> 
+      </p>
+   </div>
+</div>
+
 	<section class="container">
 		<div class="row">
 			<div class="col">
-				<h1>Envoyer un message</h1>
+				<h2 class="display-5">Envoyer un message</h2>
                 {{ form(form) }}
-				<a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+				<a class="btn btn-secondary mt-3" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
 					Voir mes dossiers
 				</a>
 			</div>

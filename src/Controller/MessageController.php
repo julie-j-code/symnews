@@ -56,12 +56,21 @@ class MessageController extends AbstractController
      */
     public function received(): Response
     {
-        return $this->render('messages/received.html.twig');
+        return $this->render('message/received.html.twig');
+    }
+
+    /**
+     * pour les éléments envoyés
+     * @Route("/sent", name="sent")
+     */
+    public function sent(): Response
+    {
+        return $this->render('message/sent.html.twig');
     }
 
 
     /**
-     * @Route("/read", name="read")
+     * @Route("/read/{id}", name="read")
      */
     public function read(Messages $message): Response
     {
@@ -70,7 +79,7 @@ class MessageController extends AbstractController
         $manager = $this->getDoctrine()->getManager();
         $manager->persist($message);
         $manager->flush();
-        return $this->render('messages/read.html.twig');
+        return $this->render('message/read.html.twig');
     }
 
 

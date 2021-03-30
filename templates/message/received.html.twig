@@ -4,11 +4,26 @@
 {% endblock %}
 
 {% block body %}
+<div class="container-fluid bg-light p-5 my-5">
+    <div class="container mx-auto pt-5">
+      <h1 class="display-3 mb-5">Messagerie</h1>
+      <p>No need to return anything else but this template in the Messsage Controller.  The global  app.user will do the job for us ! So, the public function associated to this route is very simple : 
+          <code>
+           public function received(): Response
+           {
+               return $this->render('message/received.html.twig');
+           }</code>. 
+           <p>
+            Then, above this jumbotron, you can see in action <code> app.user.received|length</code>
+           </p> 
+      </p>
+   </div>
+</div>
+
 <section class="container">
     <div class="row">
         <div class="col-12">
-            <h1>Messagerie</h1>
-            <h2>Boîte de réception</h2>
+            <h2 class="display-5">Boîte de réception</h2>
             <p>Vous avez reçu
                 {{ app.user.received|length }}
                 messages</p>
@@ -25,7 +40,7 @@
 
         <div class="col-3 {{bold}}">{{ message.sender.email }}</div>
         <div class="col-3 {{bold}}">
-            <a href="{{ path(" read", {id: message.id}) }}">{{ message.title }}</a>
+            <a href="{{ path("read", {id: message.id}) }}">{{ message.title }}</a>
         </div>
         <div class="col-3 {{bold}}">{{ message.createdAt|date }}</div>
         <div class="col-3">
@@ -41,7 +56,7 @@
                 aria-controls="offcanvasExample">
                 Voir mes dossiers
             </a>
-            <a href="{{path(" send")}}" class="btn btn-primary">Envoyer un message</a>
+            <a href="{{path("send")}}" class="btn btn-primary">Envoyer un message</a>
         </div>
     </div>
 </section>
@@ -52,14 +67,14 @@
     </div>
     <div class="offcanvas-body">
         <div class="list-group">
-            <a href="{{ path(" messages") }}" class="list-group-item list-group-item-action">Accueil</a>
+            <a href="{{ path("messages") }}" class="list-group-item list-group-item-action">Accueil</a>
         </div>
         <div class="list-group">
-            <a href="{{ path(" received") }}" class="list-group-item list-group-item-action active">Boîte de
+            <a href="{{ path("received") }}" class="list-group-item list-group-item-action active">Boîte de
                 réception</a>
         </div>
         <div class="list-group">
-            <a href="{{ path(" messages") }}" class="list-group-item list-group-item-action">Eléments envoyés</a>
+            <a href="{{ path("messages") }}" class="list-group-item list-group-item-action">Eléments envoyés</a>
         </div>
     </div>
 </div>
