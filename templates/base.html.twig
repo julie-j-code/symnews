@@ -79,6 +79,10 @@
 					<a class="nav-link" href="{{path('app_login')}}">Connexion
 					</a>
 				</li>
+				<li class="nav-item active">
+					<a class="nav-link" href="{{path('register')}}">Inscription
+					</a>
+				</li>
 				{% endif %}
 				{% if is_granted('ROLE_ADMIN') %}
 				{# Ici le contenu réservé aux administrateurs#}

@@ -19,12 +19,46 @@ class UserController extends AbstractController
      */
     public function index(UserRepository $repo): Response
     {
-        $users=$repo->findAll();
+        $users = $repo->findAll();
         return $this->render('user/index.html.twig', [
-            'users'=> $users
+            'users' => $users
 
         ]);
     }
+
+
+    /**
+     * Authentification
+     * @Route("/register", name="register")
+     */
+    public function register(Request $request, UserPasswordEncoderInterface $encoder, EntityManagerInterface $manager): Response
+    {
+
+
+        $user = new User();
+        $form = $this->createForm(UserType::class, $user);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            if ($user->getPlainpassword()) {
+                $pwd = $encoder->encodePassword($user, $user->getPlainpassword());
+                $user->setPassword($pwd);
+            }
+
+            $manager->persist($user);
+            $manager->flush();
+            $this->addFlash("message", "Message envoyé avec succès.");
+            return $this->redirectToRoute("app_login");
+        }
+
+        return $this->render('user/create.html.twig', [
+
+            'form' => $form->createView()
+
+        ]);
+    }
+
+
+
 
     /**
      * En pratique, cette route devrait être transférée dans un dossier admin
@@ -36,8 +70,8 @@ class UserController extends AbstractController
         // dd($user);
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid()){
-            if($user->getPlainpassword()){
+        if ($form->isSubmitted() && $form->isValid()) {
+            if ($user->getPlainpassword()) {
                 $pwd = $encoder->encodePassword($user, $user->getPlainpassword());
                 $user->setPassword($pwd);
             }
@@ -45,12 +79,11 @@ class UserController extends AbstractController
             // dd($user);
             $manager->persist($user);
             $manager->flush();
-
         }
-    
+
         return $this->render('user/view.html.twig', [
 
-            'form'=> $form->createView()
+            'form' => $form->createView()
 
         ]);
     }
@@ -63,11 +96,11 @@ class UserController extends AbstractController
     {
 
         // dd($user);
-        $user=$this->getUser();
+        $user = $this->getUser();
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid()){
-            if($user->getPlainpassword()){
+        if ($form->isSubmitted() && $form->isValid()) {
+            if ($user->getPlainpassword()) {
                 $pwd = $encoder->encodePassword($user, $user->getPlainpassword());
                 $user->setPassword($pwd);
             }
@@ -75,18 +108,13 @@ class UserController extends AbstractController
             // dd($user);
             $manager->persist($user);
             $manager->flush();
-
         }
-    
-        return $this->render('user/view.html.twig', [
-            'user'=>$user,
 
-            'form'=> $form->createView()
+        return $this->render('user/view.html.twig', [
+            'user' => $user,
+
+            'form' => $form->createView()
 
         ]);
     }
-
-
-
-
 }

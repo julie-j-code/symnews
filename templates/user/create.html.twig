@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserController!{% endblock %}
+
+{% block body %}
+<main role="main">
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+
+      <div class="container-fluid my-5 p-5 bg-light">
+        <div class="container mt-5">
+          <h1 class="display-3">Création de compte</h1>
+          <p>Ceci est la vue qui rend compte du profile utilisateur...
+            <br>Vue à partir de laquelle l'utilisateur authentifié et/ou l'administrateur peut pour le moment modifier les informations.</p>
+        </div>
+      </div>
+
+
+    <div class="container">
+      <!-- Example row of columns -->
+      {{form(form)}}
+      <hr>
+    </div> <!-- /container -->
+
+  </main>
+{% endblock %}
