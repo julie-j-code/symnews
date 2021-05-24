@@ -5,7 +5,9 @@
 {% block body %}
 
 
-    <main role="main">
+<main role="main">
+  <div class="container-fluid bg-light p-5 my-5">
+    <div class="container mx-auto pt-5">
 
       <!-- Main jumbotron for a primary marketing message or call to action -->
       <div class="jumbotron">
@@ -13,15 +15,15 @@
           <h1 class="display-3">{{news.title}}</h1>
         </div>
       </div>
+      <hr>
 
-      <div class="container">
+      <div class="container mt-5">
         <!-- Example row of columns -->
         <div class="row">
-         
+
           <div class="col-12">
             <p>{{news.content}}</p>
-            <p><span class="text-muted">{{news.createdAt |ago}} - {{news.user.lastname}}</span></p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+            <p><span class="text-muted">{{news.createdAt |ago}} - par {{news.user.lastname}}</span></p>
           </div>
 
 
@@ -30,8 +32,10 @@
         <hr>
 
       </div> <!-- /container -->
+    </div>
+  </div>
 
-    </main>
+</main>
 
 
 

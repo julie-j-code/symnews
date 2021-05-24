@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\UserEditType;
 use App\Form\UserType;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -71,10 +72,6 @@ class UserController extends AbstractController
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            if ($user->getPlainpassword()) {
-                $pwd = $encoder->encodePassword($user, $user->getPlainpassword());
-                $user->setPassword($pwd);
-            }
 
             // dd($user);
             $manager->persist($user);
@@ -97,7 +94,7 @@ class UserController extends AbstractController
 
         // dd($user);
         $user = $this->getUser();
-        $form = $this->createForm(UserType::class, $user);
+        $form = $this->createForm(UserEditType::class, $user);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             if ($user->getPlainpassword()) {

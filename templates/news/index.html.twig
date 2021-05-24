@@ -33,7 +33,7 @@
         <h2>{{new.title}}</h2>
         <p>{{new.content | u.truncate(100,'...')}}</p>
         <p><span class="text-muted">{{new.createdAt |ago}} - {{new.user.lastname}}</span></p>
-        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+        <p><a class="btn btn-secondary" href="{{path('view',{id:new.id})}}}" role="button">View details &raquo;</a></p>
       </div>
       {% endfor %}
       {# <div class="col-md-4">
